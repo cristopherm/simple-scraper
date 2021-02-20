@@ -1,30 +1,13 @@
 # simple-scraper
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
+<!-- [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Total Downloads][ico-downloads]][link-downloads] -->
 
-**Note:** Replace ```Cristopher Martins``` ```cristopherm``` ```https://github.com/cristopherm``` ```cristopher.martins@gmail.com``` ```cristopherm``` ```simple-scraper``` ```A simple scraper for HTML pages in PHP``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
-build/
-docs/
-config/
-src/
-tests/
-vendor/
-```
+A simple HTML scraper in PHP.
 
 
 ## Install
@@ -37,14 +20,30 @@ $ composer require cristopherm/simple-scraper
 
 ## Usage
 
-``` php
-$skeleton = new cristopherm\simple-scraper();
-echo $skeleton->echoPhrase('Hello, League!');
+The parse method will return a object with the following properties:
+* title
+* tags
+* description
+* content
+
+You can use a raw HTML string or an URL with the methods **loadString()** and **loadUrl()** respectively.
+
+**Example:**
+
+```
+use Cristopherm\SimpleScraper\HtmlParser;
+
+$file = new HtmlParser();
+
+$result = $file
+    ->loadString($rawFile)
+    ->idsForCleaning(['some-id', 'another-id'])
+    ->parse();
 ```
 
-## Change log
+<!-- ## Change log
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently. -->
 
 ## Testing
 
